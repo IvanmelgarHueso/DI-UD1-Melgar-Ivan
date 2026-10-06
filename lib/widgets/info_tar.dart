@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 
-class InfoCard extends StatelessWidget {
+// Widget secundario extraído a su propio archivo
+class info_tar extends StatelessWidget {
   final IconData icon;
   final String title;
-  final String value;
+  final String subtitle;
 
-  const InfoCard({
+  const info_tar({
     super.key,
     required this.icon,
     required this.title,
-    required this.value,
+    required this.subtitle,
   });
 
   @override
@@ -17,7 +18,7 @@ class InfoCard extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
-        color: const Color(0xFFD32F2F),
+        color: const Color(0xFFE52E2E), // Rojo 
         borderRadius: BorderRadius.circular(16),
       ),
       child: Column(
@@ -27,7 +28,7 @@ class InfoCard extends StatelessWidget {
           Container(
             padding: const EdgeInsets.all(6),
             decoration: BoxDecoration(
-              color: const Color(0xFF1E2638),
+              color: const Color(0xFF141F2B), // Fondo oscuro 
               borderRadius: BorderRadius.circular(8),
             ),
             child: Icon(icon, color: Colors.white, size: 20),
@@ -36,16 +37,17 @@ class InfoCard extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                title.toUpperCase(),
+                title,
                 style: const TextStyle(
                   color: Colors.white70,
                   fontSize: 10,
                   fontWeight: FontWeight.bold,
+                  letterSpacing: 0.5,
                 ),
               ),
               const SizedBox(height: 2),
               Text(
-                value,
+                subtitle,
                 style: const TextStyle(
                   color: Colors.white,
                   fontSize: 13,
