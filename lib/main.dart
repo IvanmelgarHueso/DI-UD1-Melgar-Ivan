@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'widgets/info_tar.dart'; // Importamos el widget separado
+import 'widgets/info_tar.dart'; 
 
 void main() {
   runApp(const MiAppVideojuego());
@@ -18,25 +18,18 @@ class MiAppVideojuego extends StatelessWidget {
     );
   }
 }
-
-class TarjetaPantalla extends StatefulWidget {
+ 
+class TarjetaPantalla extends StatelessWidget {
   const TarjetaPantalla({super.key});
 
-  @override
-  State<TarjetaPantalla> createState() => _TarjetaPantallaState();
-}
-
-class _TarjetaPantallaState extends State<TarjetaPantalla> {
-  int _likes = 0;
-
-  // callback para el botón de PC
+  // Callback para el botón de PC
   void _notificarPlataforma() {
-    print('Callback directo: Se ha seleccionado la plataforma PC.');
+    print('Se ha seleccionado la plataforma PC.');
   }
 
   // Función que recibe parámetros 
   void _compartirConAmigos(String tituloJuego, String redSocial) {
-    print('IconButton Flotante: Compartiendo "$tituloJuego" con amigos vía $redSocial.');
+    print('Compartiendo "$tituloJuego" con amigos vía $redSocial.');
   }
 
   @override
@@ -72,17 +65,17 @@ class _TarjetaPantallaState extends State<TarjetaPantalla> {
                   // Imagen Principal
                   Stack(
                     children: [
-                      //  GestureDetector aplicado sobre la imagen 
+                      // Gestos sobre la portada
                       GestureDetector(
                         onTap: () {
-                          print('GestureDetector: Tap sobre la portada del juego.');
+                          print('Tap sobre la portada del juego.');
                         },
                         onDoubleTap: () {
-                          setState(() => _likes++);
-                          print('GestureDetector: Doble tap en la portada. Total likes: $_likes');
+                          // Acción ejecutada sin modificar estado de la interfaz
+                          print('Doble tap registrado en la portada de Albion ONLINE.');
                         },
                         child: Image.asset(
-                          'assets/Portada_Albion.png',
+                          'assets/Portada_Albion.png', 
                           height: 320,
                           width: double.infinity,
                           fit: BoxFit.cover,
@@ -97,7 +90,7 @@ class _TarjetaPantallaState extends State<TarjetaPantalla> {
                           },
                         ),
                       ),
-                      // estrellas
+                      // Estrellas / Calificación
                       Positioned(
                         top: 14,
                         right: 14,
@@ -172,7 +165,7 @@ class _TarjetaPantallaState extends State<TarjetaPantalla> {
                         // Botones de Plataforma (PC, PS5)
                         Row(
                           children: [
-                            //  Botón con onPressed + Callback 
+                            // Pasando la referencia a la función
                             ElevatedButton(
                               style: ElevatedButton.styleFrom(
                                 backgroundColor: const Color(0xFF141F2B),
@@ -187,6 +180,7 @@ class _TarjetaPantallaState extends State<TarjetaPantalla> {
                               child: const Text('PC', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
                             ),
                             const SizedBox(width: 10),
+                            // Función anónima en línea
                             ElevatedButton(
                               style: ElevatedButton.styleFrom(
                                 backgroundColor: const Color(0xFF141F2B),
@@ -198,7 +192,7 @@ class _TarjetaPantallaState extends State<TarjetaPantalla> {
                                 tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                               ),
                               onPressed: () {
-                                print('Botón PS5 pulsado.');
+                                print('Se ha seleccionado la plataforma PS5.');
                               },
                               child: const Text('PS5', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
                             ),
@@ -206,7 +200,7 @@ class _TarjetaPantallaState extends State<TarjetaPantalla> {
                         ),
                         const SizedBox(height: 20),
 
-                        // Rejilla 2x2 usando el widget de info_tar.dart
+                        // Rejilla 2x2 usando el widget extraído info_tar
                         GridView.count(
                           crossAxisCount: 2,
                           shrinkWrap: true,
